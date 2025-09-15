@@ -71,6 +71,8 @@ FhyMatrix juga berfungsi sebagai laboratorium eksperimen dan portofolio, menampi
 
 ## Diagram Arsitektur
 
+<img src="./diagram.png" />
+
 ```
                 ┌─────────────────────────────────┐
                 │             Frontend UI         │

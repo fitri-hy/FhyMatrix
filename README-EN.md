@@ -71,6 +71,8 @@ FhyMatrix also serves as an experimentation lab and portfolio, showcasing expert
 
 ## Diagram Arsitektur
 
+<img src="./diagram.png" />
+
 ```
                 ┌─────────────────────────────────┐
                 │             Frontend UI         │
