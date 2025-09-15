@@ -65,7 +65,7 @@ FhyMatrix also serves as an experimentation lab and portfolio, showcasing expert
 - Infra / DevOps: Docker Compose, Kubernetes, Prometheus, Grafana
 - Testing: Jest
 
-##Conclusion
+## Conclusion
 
 > FhyMatrix is ​​a future-ready project that combines modularity, high performance, cloud-native, observability, and automated testing, designed for solo developers or small teams looking to build complex systems efficiently. scalability, and cutting-edge technology.
 
