@@ -9,7 +9,7 @@
     "start:other": "node services/other-service/src/server.js",
     "start:gateway": "node gateway/src/server.js",
     "start:all": "concurrently -k -n AUTH,USER,OTHER,GATEWAY \"npm run start:auth\" \"npm run start:user\" \"npm run start:other\" \"npm run start:gateway\"",
-	"prisma:gen:auth": "cd services/auth-service && npx prisma generate --schema=src/prisma/schema.prisma",
+    "prisma:gen:auth": "cd services/auth-service && npx prisma generate --schema=src/prisma/schema.prisma",
     "prisma:gen:other": "cd services/other-service && npx prisma generate --schema=src/prisma/schema.prisma",
     "prisma:gen:user": "cd services/user-service && npx prisma generate --schema=src/prisma/schema.prisma",
     "prisma:gen:all": "npm run prisma:gen:auth && npm run prisma:gen:user && npm run prisma:gen:other",

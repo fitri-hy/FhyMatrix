@@ -212,9 +212,14 @@ FhyMatrix-BE/
 │
 ├── gateway/
 │   ├── src/
+│   │   ├── middlewares/
+│   │   │   ├── cache.js
+│   │   │   ├── errorHandler.js
+│   │   │   ├── logger.js
+│   │   │   └── jsonParser.js
 │   │   ├── services/
-│   │   │   ├─── authService.js
-│   │   │   ├─── otherService.js
+│   │   │   ├── authService.js
+│   │   │   ├── otherService.js
 │   │   │   └── userService.js
 │   │   ├── utils/
 │   │   │   └─── gprcHelper.js
