@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  auth-service:
+    build: ./services/auth-service
+    container_name: auth-service
+    ports:
+      - "50051:50051"       # gRPC
+      - "60051:60051"       # HTTP metrics & health
+    env_file:
+      - ./services/auth-service/.env
+    networks:
+      - fhy-net
+
+  user-service:
+    build: ./services/user-service
+    container_name: user-service
+    ports:
+      - "50052:50052"
+      - "60052:60052"
+    env_file:
+      - ./services/user-service/.env
+    networks:
+      - fhy-net
+
+  other-service:
+    build: ./services/other-service
+    container_name: other-service
+    ports:
+      - "50053:50053"
+      - "60053:60053"
+    env_file:
+      - ./services/other-service/.env
+    networks:
+      - fhy-net
+
+  api-gateway:
+    build: ./gateway
+    container_name: api-gateway
+    ports:
+      - "3000:3000"
+      - "3100:3100" # metrics
+    env_file:
+      - ./gateway/.env
+    depends_on:
+      - auth-service
+      - user-service
+      - other-service
+    networks:
+      - fhy-net
+
+networks:
+  fhy-net:
+    driver: bridge

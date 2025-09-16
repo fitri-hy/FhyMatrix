@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package other;
+
+service OtherService {
+  rpc Ping(Empty) returns (PingResponse);
+  rpc Metrics(Empty) returns (MetricsResponse);
+  rpc Health(Empty) returns (HealthResponse);
+}
+
+message Empty {}
+
+message PingResponse {
+  int32 id = 1;
+  string message = 2;
+  string createdAt = 3;
+}
+
+message MetricsResponse {
+  string metrics = 1;
+}
+
+message HealthResponse {
+  string status = 1;
+}

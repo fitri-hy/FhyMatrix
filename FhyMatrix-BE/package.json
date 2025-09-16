@@ -1,0 +1,31 @@
+{
+  "name": "fhymatrix-be",
+  "version": "1.0.0",
+  "description": "Microservices architecture with NestJS, Prisma, gRPC, and PostgreSQL",
+  "private": true,
+  "scripts": {
+    "start:auth": "node services/auth-service/src/server.js",
+    "start:user": "node services/user-service/src/server.js",
+    "start:other": "node services/other-service/src/server.js",
+    "start:gateway": "node gateway/src/server.js",
+    "start:all": "concurrently -k -n AUTH,USER,OTHER,GATEWAY \"npm run start:auth\" \"npm run start:user\" \"npm run start:other\" \"npm run start:gateway\"",
+	"prisma:gen:auth": "cd services/auth-service && npx prisma generate --schema=src/prisma/schema.prisma",
+    "prisma:gen:other": "cd services/other-service && npx prisma generate --schema=src/prisma/schema.prisma",
+    "prisma:gen:user": "cd services/user-service && npx prisma generate --schema=src/prisma/schema.prisma",
+    "prisma:gen:all": "npm run prisma:gen:auth && npm run prisma:gen:user && npm run prisma:gen:other",
+    "prisma:migrate:auth": "cd services/auth-service && npx prisma migrate dev --name init --schema=src/prisma/schema.prisma",
+    "prisma:migrate:user": "echo 'User service menggunakan database yang sama dengan auth, migrasi dijalankan di auth-service'",
+    "prisma:migrate:other": "cd services/other-service && npx prisma migrate dev --name init --schema=src/prisma/schema.prisma",
+    "prisma:migrate:all": "npm run prisma:migrate:auth && npm run prisma:migrate:other && npm run prisma:migrate:user"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.4",
+    "@grpc/proto-loader": "^0.8.0",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "prom-client": "^15.1.3"
+  }
+}

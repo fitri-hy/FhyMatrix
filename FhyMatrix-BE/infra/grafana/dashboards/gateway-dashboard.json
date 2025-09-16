@@ -1,0 +1,17 @@
+{
+  "annotations": { "list": [] },
+  "panels": [
+    {
+      "title": "API Gateway Health",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "up{job='api-gateway'}",
+          "legendFormat": "API Gateway"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 30,
+  "title": "API Gateway Dashboard"
+}

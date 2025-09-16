@@ -1,0 +1,27 @@
+{
+  "annotations": { "list": [] },
+  "panels": [
+    {
+      "title": "Auth Service Health",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "up{job='auth-service'}",
+          "legendFormat": "Auth Service"
+        }
+      ]
+    },
+    {
+      "title": "Login Latency",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(grpc_server_handling_seconds_bucket{service='AuthService'}[5m])) by (le))",
+          "legendFormat": "95th percentile"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 30,
+  "title": "Auth Service Dashboard"
+}

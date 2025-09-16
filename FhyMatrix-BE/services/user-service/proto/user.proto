@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  rpc ListUsers(Empty) returns (ListUsersResponse);
+  rpc Ping(Empty) returns (PingResponse);
+  rpc Metrics(Empty) returns (MetricsResponse);
+  rpc Health(Empty) returns (HealthResponse);
+}
+
+message Empty {}
+
+message GetUserRequest {
+  int32 id = 1;
+}
+
+message GetUserResponse {
+  int32 id = 1;
+  string email = 2;
+}
+
+message ListUsersResponse {
+  repeated GetUserResponse users = 1;
+}
+
+message PingResponse {
+  int32 id = 1;
+  string message = 2;
+  string createdAt = 3;
+}
+
+message MetricsResponse {
+  string metrics = 1;
+}
+
+message HealthResponse {
+  string status = 1;
+}

@@ -1,0 +1,27 @@
+{
+  "annotations": { "list": [] },
+  "panels": [
+    {
+      "title": "Other Service Health",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "up{job='other-service'}",
+          "legendFormat": "Other Service"
+        }
+      ]
+    },
+    {
+      "title": "Ping Latency",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(grpc_server_handling_seconds_bucket{service='OtherService'}[5m])) by (le))",
+          "legendFormat": "95th percentile"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 30,
+  "title": "Other Service Dashboard"
+}

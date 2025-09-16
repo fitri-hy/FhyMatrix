@@ -1,0 +1,27 @@
+{
+  "annotations": { "list": [] },
+  "panels": [
+    {
+      "title": "User Service Health",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "up{job='user-service'}",
+          "legendFormat": "User Service"
+        }
+      ]
+    },
+    {
+      "title": "GetUser Latency",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(grpc_server_handling_seconds_bucket{service='UserService'}[5m])) by (le))",
+          "legendFormat": "95th percentile"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 30,
+  "title": "User Service Dashboard"
+}
