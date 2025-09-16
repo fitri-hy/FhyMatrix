@@ -2,6 +2,7 @@ const express = require('express');
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
 const path = require('path');
+const config = require('../../config');
 
 const router = express.Router();
 
@@ -15,11 +16,10 @@ const authProtoDef = protoLoader.loadSync(authProtoPath, {
 });
 const authProto = grpc.loadPackageDefinition(authProtoDef).auth;
 const authClient = new authProto.AuthService(
-  process.env.AUTH_GRPC_HOST || 'localhost:50051',
+  config.authGrpcHost,
   grpc.credentials.createInsecure()
 );
 
-// REST routes
 router.post('/login', (req, res) => {
   authClient.Login(req.body, (err, response) => {
     if (err) return res.status(401).json({ message: err.message });

@@ -1,7 +1,8 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
 const express = require('express');
-const path = require('path');
 const config = require('./config');
 const authController = require('./controllers/authController');
 const authRoutes = require('./routes/authRoutes');
