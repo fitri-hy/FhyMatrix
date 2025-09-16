@@ -1,0 +1,17 @@
+FhyMatrix-BE/node_modules/
+FhyMatrix-BE/pnpm-lock.yaml
+FhyMatrix-BE/gateway/.env
+FhyMatrix-BE/gateway/node_modules/
+FhyMatrix-BE/gateway/pnpm-lock.yaml
+FhyMatrix-BE/services/auth-service/.env
+FhyMatrix-BE/services/auth-service/pnpm-lock.yaml
+FhyMatrix-BE/services/auth-service/node_modules/
+FhyMatrix-BE/services/auth-service/src/prisma/migrations/
+FhyMatrix-BE/services/other-service/.env
+FhyMatrix-BE/services/other-service/pnpm-lock.yaml
+FhyMatrix-BE/services/other-service/node_modules/
+FhyMatrix-BE/services/other-service/src/prisma/migrations/
+FhyMatrix-BE/services/user-service/.env
+FhyMatrix-BE/services/user-service/pnpm-lock.yaml
+FhyMatrix-BE/services/user-service/node_modules/
+FhyMatrix-BE/services/user-service/src/prisma/migrations/

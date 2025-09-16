@@ -212,7 +212,13 @@ FhyMatrix-BE/
 │
 ├── gateway/
 │   ├── src/
-│   │   └── apiGateway.js
+│   │   ├── services/
+│   │   │   ├─── authService.js
+│   │   │   ├─── otherService.js
+│   │   │   └── userService.js
+│   │   ├── utils/
+│   │   │   └─── gprcHelper.js
+│   │   └── server.js
 │   ├── config/
 │   │   └── index.js
 │   ├── tests/
@@ -231,7 +237,12 @@ FhyMatrix-BE/
 │   │   └── prometheus.yaml
 │   └── grafana/
 │       └── dashboards/
+│           ├── auth-service-dashboard.json
+│           ├── user-service-dashboard.json
+│           ├── gateway-dashboard.json
+│           └── other-service-dashboard.json
 │
+├── package.json
 └── docker-compose.yml
 ```
 
@@ -255,7 +266,6 @@ FhyMatrix-FE/
 │   │   └── index.html
 │   ├── tests/
 │   │   └── App.test.js
-│   ├── webpack.config.js      # Module Federation config
 │   ├── package.json
 │   ├── .env.example
 │   └── Dockerfile
@@ -275,7 +285,6 @@ FhyMatrix-FE/
 │   │   └── index.html
 │   ├── tests/
 │   │   └── App.test.js
-│   ├── webpack.config.js      # Module Federation config
 │   ├── package.json
 │   ├── .env.example
 │   └── Dockerfile
@@ -295,7 +304,6 @@ FhyMatrix-FE/
 │   │   └── index.html
 │   ├── tests/
 │   │   └── App.test.js
-│   ├── webpack.config.js      # Module Federation config
 │   ├── package.json
 │   ├── .env.example
 │   └── Dockerfile
